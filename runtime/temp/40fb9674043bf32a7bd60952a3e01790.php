@@ -1,10 +1,62 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\program\www\gitpro\fastadmin\public/../application/admin\view\article\index.html";i:1535860020;s:74:"D:\program\www\gitpro\fastadmin\application\admin\view\layout\default.html";i:1535767994;s:71:"D:\program\www\gitpro\fastadmin\application\admin\view\common\meta.html";i:1535768108;s:73:"D:\program\www\gitpro\fastadmin\application\admin\view\common\script.html";i:1535768116;}*/ ?>
+<!DOCTYPE html>
+<html lang="<?php echo $config['language']; ?>">
+    <head>
+        <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:''); ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
 
+<link rel="shortcut icon" href="/gitpro/fastadmin/public/assets/img/favicon.ico" />
+<!-- Loading Bootstrap -->
+<link href="/gitpro/fastadmin/public/assets/css/backend<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.css?v=<?php echo \think\Config::get('site.version'); ?>" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+  <script src="/gitpro/fastadmin/public/assets/js/html5shiv.js"></script>
+  <script src="/gitpro/fastadmin/public/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    var require = {
+        config:  <?php echo json_encode($config); ?>
+    };
+</script>
+    </head>
+
+    <body class="inside-header inside-aside <?php echo defined('IS_DIALOG') && IS_DIALOG ? 'is-dialog' : ''; ?>">
+        <div id="main" role="main">
+            <div class="tab-content tab-addtabs">
+                <div id="content">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <section class="content-header hide">
+                                <h1>
+                                    <?php echo __('Dashboard'); ?>
+                                    <small><?php echo __('Control panel'); ?></small>
+                                </h1>
+                            </section>
+                            <?php if(!IS_DIALOG && !$config['fastadmin']['multiplenav']): ?>
+                            <!-- RIBBON -->
+                            <div id="ribbon">
+                                <ol class="breadcrumb pull-left">
+                                    <li><a href="dashboard" class="addtabsit"><i class="fa fa-dashboard"></i> <?php echo __('Dashboard'); ?></a></li>
+                                </ol>
+                                <ol class="breadcrumb pull-right">
+                                    <?php foreach($breadcrumb as $vo): ?>
+                                    <li><a href="javascript:;" data-url="<?php echo $vo['url']; ?>"><?php echo $vo['title']; ?></a></li>
+                                    <?php endforeach; ?>
+                                </ol>
+                            </div>
+                            <!-- END RIBBON -->
+                            <?php endif; ?>
+                            <div class="content">
+                                
     <head>
         <meta charset="utf-8" />
         <title>Using require.js - Editor.md examples</title>
-        <link rel="stylesheet" href="__PUBLIC__/assets/libs/editormd/examples/css/style.css" />
-        <link rel="stylesheet" href="__PUBLIC__/assets/libs/editormd/lib/codemirror/codemirror.min.css" /> 
-        <link rel="stylesheet" href="__PUBLIC__/assets/libs/editormd/css/editormd.min.css" />
+        <link rel="stylesheet" href="/gitpro/fastadmin/public//assets/libs/editormd/examples/css/style.css" />
+        <link rel="stylesheet" href="/gitpro/fastadmin/public//assets/libs/editormd/lib/codemirror/codemirror.min.css" /> 
+        <link rel="stylesheet" href="/gitpro/fastadmin/public//assets/libs/editormd/css/editormd.min.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
     </head>
     <body>
@@ -26,36 +78,36 @@
             </div>
             <div id="article-content"></div>
         </div>   
-        <script src="__PUBLIC__/assets/js/require.min.js"></script>
+        <script src="/gitpro/fastadmin/public//assets/js/require.min.js"></script>
 
         <script type="text/javascript">            
             requirejs.config({
-                baseUrl: "__PUBLIC__/assets/libs/editormd/lib/",
+                baseUrl: "/gitpro/fastadmin/public//assets/libs/editormd/lib/",
                 paths: {
-                    jquery          : "__PUBLIC__/assets/libs/editormd/examples/js/jquery.min",
+                    jquery          : "/gitpro/fastadmin/public//assets/libs/editormd/examples/js/jquery.min",
                     marked          : "marked.min",
                     prettify        : "prettify.min",
                     raphael         : "raphael.min",
                     underscore      : "underscore.min",
                     sequenceDiagram : "sequence-diagram.min",
-                    katex           : "__PUBLIC__/assets/libs/editormd/examples/js/katex.min",
-                    editormd        : "__PUBLIC__/assets/libs/editormd/editormd.amd" // Using Editor.md amd version for Require.js
+                    katex           : "/gitpro/fastadmin/public//assets/libs/editormd/examples/js/katex.min",
+                    editormd        : "/gitpro/fastadmin/public//assets/libs/editormd/editormd.amd" // Using Editor.md amd version for Require.js
                 },
                 waitSeconds: 30
             });
             
             var deps = [
                 "editormd", 
-                "__PUBLIC__/assets/libs/editormd/plugins/link-dialog/link-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/reference-link-dialog/reference-link-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/image-dialog/image-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/code-block-dialog/code-block-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/table-dialog/table-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/emoji-dialog/emoji-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/goto-line-dialog/goto-line-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/help-dialog/help-dialog.js",
-                "__PUBLIC__/assets/libs/editormd/plugins/html-entities-dialog/html-entities-dialog.js", 
-                "__PUBLIC__/assets/libs/editormd/plugins/preformatted-text-dialog/preformatted-text-dialog.js"
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/link-dialog/link-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/reference-link-dialog/reference-link-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/image-dialog/image-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/code-block-dialog/code-block-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/table-dialog/table-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/emoji-dialog/emoji-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/goto-line-dialog/goto-line-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/help-dialog/help-dialog.js",
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/html-entities-dialog/html-entities-dialog.js", 
+                "/gitpro/fastadmin/public//assets/libs/editormd/plugins/preformatted-text-dialog/preformatted-text-dialog.js"
             ];
             
             var testEditor;
@@ -64,13 +116,13 @@
                 
                 // if enable codeFold
                 // or <link rel="stylesheet" href="../lib/codemirror/addon/fold/foldgutter.css" />
-                editormd.loadCSS("__PUBLIC__/assets/libs/editormd/lib/codemirror/addon/fold/foldgutter");
+                editormd.loadCSS("/gitpro/fastadmin/public//assets/libs/editormd/lib/codemirror/addon/fold/foldgutter");
                 
                 function markdown_text(md) {
                     testEditor = editormd("article-content", {
                         width: "90%",
                         height: 640,
-                        path : '__PUBLIC__/assets/libs/editormd/lib/',
+                        path : '/gitpro/fastadmin/public//assets/libs/editormd/lib/',
                         markdown : md,
                         codeFold : true,
                         searchReplace : true,
@@ -161,3 +213,13 @@
     </body>
 
 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/gitpro/fastadmin/public/assets/js/require<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.js" data-main="/gitpro/fastadmin/public/assets/js/require-backend<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.js?v=<?php echo $site['version']; ?>"></script>
+    </body>
+</html>
