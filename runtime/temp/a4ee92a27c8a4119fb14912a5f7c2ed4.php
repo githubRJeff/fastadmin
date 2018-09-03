@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:79:"F:\phpstudy\WWW\fastadmin\public/../application/admin\view\dashboard\index.html";i:1535767977;s:68:"F:\phpstudy\WWW\fastadmin\application\admin\view\layout\default.html";i:1535767994;s:65:"F:\phpstudy\WWW\fastadmin\application\admin\view\common\meta.html";i:1535768108;s:67:"F:\phpstudy\WWW\fastadmin\application\admin\view\common\script.html";i:1535768116;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"/Users/blackrun/1.code/gitpro/fastadmin/public/../application/admin/view/dashboard/index.html";i:1535939041;s:82:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/layout/default.html";i:1535939041;s:79:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/meta.html";i:1535939041;s:81:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/script.html";i:1535939041;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -7,14 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="renderer" content="webkit">
 
-<link rel="shortcut icon" href="/fastadmin/public/assets/img/favicon.ico" />
+<link rel="shortcut icon" href="/gitpro/fastadmin/public/assets/img/favicon.ico" />
 <!-- Loading Bootstrap -->
-<link href="/fastadmin/public/assets/css/backend<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.css?v=<?php echo \think\Config::get('site.version'); ?>" rel="stylesheet">
+<link href="/gitpro/fastadmin/public/assets/css/backend<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.css?v=<?php echo \think\Config::get('site.version'); ?>" rel="stylesheet">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 <!--[if lt IE 9]>
-  <script src="/fastadmin/public/assets/js/html5shiv.js"></script>
-  <script src="/fastadmin/public/assets/js/respond.min.js"></script>
+  <script src="/gitpro/fastadmin/public/assets/js/html5shiv.js"></script>
+  <script src="/gitpro/fastadmin/public/assets/js/respond.min.js"></script>
 <![endif]-->
 <script type="text/javascript">
     var require = {
@@ -453,7 +453,7 @@
                                         </tr>
                                         <tr>
                                             <td><?php echo __('Cdn url'); ?></td>
-                                            <td>/fastadmin/public</td>
+                                            <td>/gitpro/fastadmin/public</td>
                                         </tr>
                                         <tr>
                                             <td><?php echo __('Language'); ?></td>
@@ -516,6 +516,6 @@
                 </div>
             </div>
         </div>
-        <script src="/fastadmin/public/assets/js/require<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.js" data-main="/fastadmin/public/assets/js/require-backend<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.js?v=<?php echo $site['version']; ?>"></script>
+        <script src="/gitpro/fastadmin/public/assets/js/require<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.js" data-main="/gitpro/fastadmin/public/assets/js/require-backend<?php echo \think\Config::get('app_debug')?'':'.min'; ?>.js?v=<?php echo $site['version']; ?>"></script>
     </body>
 </html>

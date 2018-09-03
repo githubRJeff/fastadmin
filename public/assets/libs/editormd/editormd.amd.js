@@ -27,7 +27,7 @@
 
             var codeMirrorModules = [
                 "jquery", "marked", "prettify",
-                "katex", "raphael", "underscore", "flowchart.min",  "jquery.flowchart.min",  "sequenceDiagram",
+                "katex", "raphael", "underscore", "flowchart.min",  "",  "sequenceDiagram",
 
                 "./codemirror/lib/codemirror",
                 cmModePath + "css/css",

@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Using require.js - Editor.md examples</title>
-        <link rel="stylesheet" href="__PUBLIC__/assets/libs/editormd/examples/css/style.css" />
+        <link rel="stylesheet" href="__PUBLIC__/assets/libs/editormd/css/style.css" />
         <link rel="stylesheet" href="__PUBLIC__/assets/libs/editormd/lib/codemirror/codemirror.min.css" /> 
         <link rel="stylesheet" href="__PUBLIC__/assets/libs/editormd/css/editormd.min.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
@@ -24,6 +24,9 @@
                 <button id="toc-menu-btn">ToC Dropdown menu</button>
                 <button id="toc-default-btn">ToC default</button>
             </div>
+            <div class="article-title">
+                <input class="form-control" type="text" placeholder="请输入标题">
+            </div>
             <div id="article-content"></div>
         </div>   
         <script src="__PUBLIC__/assets/js/require.min.js"></script>
@@ -32,13 +35,13 @@
             requirejs.config({
                 baseUrl: "__PUBLIC__/assets/libs/editormd/lib/",
                 paths: {
-                    jquery          : "__PUBLIC__/assets/libs/editormd/examples/js/jquery.min",
+                    jquery          : "__PUBLIC__/assets/libs/editormd/js/jquery.min",
                     marked          : "marked.min",
                     prettify        : "prettify.min",
                     raphael         : "raphael.min",
                     underscore      : "underscore.min",
                     sequenceDiagram : "sequence-diagram.min",
-                    katex           : "__PUBLIC__/assets/libs/editormd/examples/js/katex.min",
+                    katex           : "__PUBLIC__/assets/libs/editormd/js/katex.min",
                     editormd        : "__PUBLIC__/assets/libs/editormd/editormd.amd" // Using Editor.md amd version for Require.js
                 },
                 waitSeconds: 30
@@ -62,8 +65,6 @@
                 
             require(deps, function(editormd) {
                 
-                // if enable codeFold
-                // or <link rel="stylesheet" href="../lib/codemirror/addon/fold/foldgutter.css" />
                 editormd.loadCSS("__PUBLIC__/assets/libs/editormd/lib/codemirror/addon/fold/foldgutter");
                 
                 function markdown_text(md) {
@@ -104,7 +105,7 @@
                         }
                     });
                 }
-                markdown_text('<h1>test</h1>')
+                markdown_text('<h1>test</h1>');
 
                 $("#show-btn").bind('click', function(){
                     testEditor.show();

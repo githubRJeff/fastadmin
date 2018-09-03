@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\program\www\gitpro\fastadmin\public/../application/admin\view\article\index.html";i:1535860020;s:74:"D:\program\www\gitpro\fastadmin\application\admin\view\layout\default.html";i:1535767994;s:71:"D:\program\www\gitpro\fastadmin\application\admin\view\common\meta.html";i:1535768108;s:73:"D:\program\www\gitpro\fastadmin\application\admin\view\common\script.html";i:1535768116;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"/Users/blackrun/1.code/gitpro/fastadmin/public/../application/admin/view/article/index.html";i:1535959831;s:82:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/layout/default.html";i:1535939041;s:79:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/meta.html";i:1535939041;s:81:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/script.html";i:1535939041;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -54,7 +54,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Using require.js - Editor.md examples</title>
-        <link rel="stylesheet" href="/gitpro/fastadmin/public//assets/libs/editormd/examples/css/style.css" />
+        <link rel="stylesheet" href="/gitpro/fastadmin/public//assets/libs/editormd/css/style.css" />
         <link rel="stylesheet" href="/gitpro/fastadmin/public//assets/libs/editormd/lib/codemirror/codemirror.min.css" /> 
         <link rel="stylesheet" href="/gitpro/fastadmin/public//assets/libs/editormd/css/editormd.min.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
@@ -76,6 +76,9 @@
                 <button id="toc-menu-btn">ToC Dropdown menu</button>
                 <button id="toc-default-btn">ToC default</button>
             </div>
+            <div class="article-title">
+                <input class="form-control" type="text" placeholder="请输入标题">
+            </div>
             <div id="article-content"></div>
         </div>   
         <script src="/gitpro/fastadmin/public//assets/js/require.min.js"></script>
@@ -84,13 +87,13 @@
             requirejs.config({
                 baseUrl: "/gitpro/fastadmin/public//assets/libs/editormd/lib/",
                 paths: {
-                    jquery          : "/gitpro/fastadmin/public//assets/libs/editormd/examples/js/jquery.min",
+                    jquery          : "/gitpro/fastadmin/public//assets/libs/editormd/js/jquery.min",
                     marked          : "marked.min",
                     prettify        : "prettify.min",
                     raphael         : "raphael.min",
                     underscore      : "underscore.min",
                     sequenceDiagram : "sequence-diagram.min",
-                    katex           : "/gitpro/fastadmin/public//assets/libs/editormd/examples/js/katex.min",
+                    katex           : "/gitpro/fastadmin/public//assets/libs/editormd/js/katex.min",
                     editormd        : "/gitpro/fastadmin/public//assets/libs/editormd/editormd.amd" // Using Editor.md amd version for Require.js
                 },
                 waitSeconds: 30
@@ -114,8 +117,6 @@
                 
             require(deps, function(editormd) {
                 
-                // if enable codeFold
-                // or <link rel="stylesheet" href="../lib/codemirror/addon/fold/foldgutter.css" />
                 editormd.loadCSS("/gitpro/fastadmin/public//assets/libs/editormd/lib/codemirror/addon/fold/foldgutter");
                 
                 function markdown_text(md) {
@@ -156,7 +157,7 @@
                         }
                     });
                 }
-                markdown_text('<h1>test</h1>')
+                markdown_text('<h1>test</h1>');
 
                 $("#show-btn").bind('click', function(){
                     testEditor.show();

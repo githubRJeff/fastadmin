@@ -19,12 +19,12 @@ namespace editormd;
         public $saveName;                       // 最终保存的文件名
         public $saveURL;                        // 最终保存URL地址
         public $savePath;                       // 保存本地文件路径
-        public $randomLength   = '';            // 生成随机文件名的长度，当为日期时为日期的格式
-        public $randomNameType = 1;             // 生成随机的形式, NULL为保留原文件名, 1生成随机字符串, 2生成日期文件名
+        public $randomLength   = '10';            // 生成随机文件名的长度，当为日期时为日期的格式
+        public $randomNameType = 2;             // 生成随机的形式, NULL为保留原文件名, 1生成随机字符串, 2生成日期文件名
         public $formats = array(                // 允许上传的文件格式
             'gif', 'jpg', 'jpeg', 'png', 'bmp'
         );
-        public $maxSize        = 1024;          // 最大上传文件大小，单位KB
+        public $maxSize        = 4096;          // 最大上传文件大小，单位KB
         public $cover          = true;          // 是否覆盖同名文件, 1覆盖,0不覆盖
         public $redirect       = false;         // 是否进行URL跳转
         public $redirectURL    = "";            // 上传成功或出错后要转到的URL        
@@ -53,13 +53,11 @@ namespace editormd;
         
         public function __construct($savePath, $saveURL, $formats, $randomNameType = 1, $randomLength = '', $cover = true, $maxSize = 1024)
         {
-            $this->savePath       = $savePath;
-            $this->saveURL        = $saveURL;
+            $date = date('Ymd');
+
+            $this->savePath       = $savePath.$date.'/';
+            $this->saveURL        = $saveURL.$date.'/';
             $this->formats        = $formats;
-            $this->maxSize        = $maxSize;
-            $this->cover          = $cover;
-            $this->randomNameType = $randomNameType;
-            $this->randomLength   = $randomLength;
         }
 
         /**
@@ -94,14 +92,17 @@ namespace editormd;
                 
                 return false;
             }
-            
+
             $this->files = $_FILES[$name];
             
             if(!file_exists($this->savePath)) //目录不存在
             {
-                $this->message($this->errors['not_exist']);
+                $mkdir = mkdir($this->savePath);
+                if (!$mkdir) {
+                    $this->message($this->errors['not_exist']);
+                    return false;
+                }
                 
-                return false;
             }
 
             if(!is_writable($this->savePath)) //目录不可写
@@ -112,9 +113,7 @@ namespace editormd;
             }
 
             $this->fileExt  = $this->getFileExt($this->files["name"]); //取得扩展名
-            
             $this->setSeveName();
-            
             return $this->moveFile();
         }
 
@@ -217,12 +216,13 @@ namespace editormd;
 
         private function randomFileName()
         {
+            $fileName = '';
             if ($this->randomNameType == 1)        // 生成时间格式文件名
             {
                 date_default_timezone_set('PRC');  //设置时区
-                
                 $date     = date($this->randomLength);
                 $fileName = $date . "_" . mt_rand(10000, 99999);
+
             }
             elseif ($this->randomNameType == 2)    // 生成随机字符文件名
             {
@@ -253,7 +253,6 @@ namespace editormd;
          private function setSeveName()
          {             
             $this->saveName = $this->randomFileName().".".$this->fileExt;
-             
             if($this->saveName == '') //如果没生成随机文件名，就保留原文件名
             {
                 $this->saveName = $this->files['name'];
