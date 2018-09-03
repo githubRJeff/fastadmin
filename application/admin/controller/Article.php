@@ -23,6 +23,20 @@ class Article extends Backend
 	{
 		return $this->view->fetch();
 	}
+	public function editArticle(){
+		$aid = '';
+		if ($aid) {
+
+		}else{
+			htmlspecialchars($_POST["article-content-markdown-doc"]);
+	        
+	        if(isset($_POST["article-content-html-code"])) {
+	        	$title = $_POST['article-title'];
+	            $content = htmlspecialchars($_POST["article-content-html-code"]);
+	        }
+	        
+		}
+	}
 	public function uploadImg(){
 
 		$formats  = array(

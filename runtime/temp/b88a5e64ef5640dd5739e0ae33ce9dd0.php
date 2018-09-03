@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"/Users/blackrun/1.code/gitpro/fastadmin/public/../application/admin/view/article/index.html";i:1535959831;s:82:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/layout/default.html";i:1535939041;s:79:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/meta.html";i:1535939041;s:81:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/script.html";i:1535939041;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"/Users/blackrun/1.code/gitpro/fastadmin/public/../application/admin/view/article/index.html";i:1535965764;s:82:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/layout/default.html";i:1535939041;s:79:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/meta.html";i:1535939041;s:81:"/Users/blackrun/1.code/gitpro/fastadmin/application/admin/view/common/script.html";i:1535939041;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -60,27 +60,27 @@
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
     </head>
     <body>
-        <div id="layout">
-           
-            <div class="btns">
-                <button id="show-btn">展开编辑器</button>
-                <button id="hide-btn">隐藏编辑器</button>
-                <button id="get-md-btn">Get Markdown</button>
-                <button id="get-html-btn">Get HTML</button>
-                <button id="watch-btn">预览</button>
-                <button id="unwatch-btn">不预览</button>
-                <button id="preview-btn">预览HTML页面</button>
-                <button id="fullscreen-btn">全屏 (ESC退出全屏)</button>
-                <button id="show-toolbar-btn">显示导航栏</button>
-                <button id="close-toolbar-btn">显示导航栏</button>
-                <button id="toc-menu-btn">ToC Dropdown menu</button>
-                <button id="toc-default-btn">ToC default</button>
+        <form action="article/editArticle" method="post">
+            <div id="layout">
+               
+                <div class="editormd-btns">
+                    <button id="watch-btn" class="fa fa-eye">开启实时预览</button>
+                    <button id="unwatch-btn" class="fa fa-eye-slash">关闭实时预览</button>
+                    <button id="preview-btn" class="fa fa-desktop">全屏预览</button>
+                    <button id="fullscreen-btn" class="fa fa-arrows-alt">全屏编辑(ESC退出全屏)</button>
+                 <!--    <button id="show-toolbar-btn">显示工具栏</button>
+                    <button id="close-toolbar-btn">不显示工具栏</button> -->
+                   
+                </div>
+                <div class="article-title">
+                    <input name="article-title" class="form-control" type="text" placeholder="请输入标题">
+                </div>
+                <div id="article-content"></div>
             </div>
-            <div class="article-title">
-                <input class="form-control" type="text" placeholder="请输入标题">
-            </div>
-            <div id="article-content"></div>
-        </div>   
+            <!-- <div class="article-requires"> -->
+                <button type="submit" class="btn btn-success btn-add  btn-embossed">提交</button> 
+            <!-- </div> -->
+        </form>   
         <script src="/gitpro/fastadmin/public//assets/js/require.min.js"></script>
 
         <script type="text/javascript">            
@@ -157,58 +157,38 @@
                         }
                     });
                 }
-                markdown_text('<h1>test</h1>');
-
-                $("#show-btn").bind('click', function(){
-                    testEditor.show();
-                });
-
-                $("#hide-btn").bind('click', function(){
-                    testEditor.hide();
-                });
-
-                $("#get-md-btn").bind('click', function(){
-                    alert(testEditor.getMarkdown());
-                });
-
-                $("#get-html-btn").bind('click', function() {
-                    alert(testEditor.getHTML());
-                });                
+                markdown_text('<p><h1>test</h1><br>good<br>test<hr>');
 
                 $("#watch-btn").bind('click', function() {
                     testEditor.watch();
+                    return false;
                 });                 
 
                 $("#unwatch-btn").bind('click', function() {
                     testEditor.unwatch();
+                    return false;
                 });              
 
                 $("#preview-btn").bind('click', function() {
                     testEditor.previewing();
+                    return false;
                 });
 
                 $("#fullscreen-btn").bind('click', function() {
                     testEditor.fullscreen();
+                    return false;
                 });
 
                 $("#show-toolbar-btn").bind('click', function() {
                     testEditor.showToolbar();
+                    return false;
                 });
 
                 $("#close-toolbar-btn").bind('click', function() {
                     testEditor.hideToolbar();
+                    return false;
                 });
                 
-                $("#toc-menu-btn").click(function(){
-                    testEditor.config({
-                        tocDropdown   : true,
-                        tocTitle      : "目录 Table of Contents",
-                    });
-                });
-                
-                $("#toc-default-btn").click(function() {
-                    testEditor.config("tocDropdown", false);
-                });
             });
         </script>
     </body>

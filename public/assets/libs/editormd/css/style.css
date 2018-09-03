@@ -59,17 +59,17 @@ body {
     text-align: left;
 }
 
-#layout > header, .btns {
+#layout > header, .editormd-btns {
     padding: 15px 0;
     width: 90%;
     margin: 0 auto;
 }
 
-.btns {
+.editormd-btns {
     padding-top: 0;
 }
 
-.btns button {
+.editormd-btns button {
     padding: 2px 8px;
 }
 
@@ -77,12 +77,12 @@ body {
     font-size: 20px;
     margin-bottom: 10px;
 }
-.article-title{
+.article-title,.article-requires{
     padding: 15px 0;
     width: 90%;
     margin: 0 auto;
 }
-.btns button, .btn {
+.editormd-btns button, .editormd-btn {
     padding: 8px 10px;
     background: #fff;
     border: 1px solid #ddd;
@@ -93,6 +93,6 @@ body {
     transition: background 300ms ease-out;
 }
 
-.btns button:hover, .btn:hover {
+.editormd-btns button:hover, .editormd-btn:hover {
     background: #f6f6f6;
 }
