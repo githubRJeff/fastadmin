@@ -34,6 +34,7 @@ class Article extends Backend
 	        	$title = $_POST['article-title'];
 	            $content = htmlspecialchars($_POST["article-content-html-code"]);
 	        }
+	        echo $content;
 	        
 		}
 	}
@@ -45,8 +46,7 @@ class Article extends Backend
 		if (isset($_FILES['editormd-image-file']))
 		{        
 			$savePath = ROOT_PATH .'public/uploads/';
-			$saveURL = dirname($_SERVER['PHP_SELF']) . '/uploads/';
-			
+			$saveURL = dirname($_SERVER['SCRIPT_NAME']) . '/uploads/';
 			$imageUploader = new EditorMdUploader($savePath, $saveURL, $formats['image'], false);  // Ymdhis表示按日期生成文件名，利用date()函数
 			$imageUploader->config(array(
 				'maxSize' => 1024,        // 允许上传的最大文件大小，以KB为单位，默认值为1024
